@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <link rel="stylesheet" href=
+"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="icon" href="/Authentix/Icon.png">
+    <link rel="stylesheet" href="/Authentix/styles.css">
+     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <title>Authentix</title>
+</head>
+ <style>
+*{
+  font-family: Montserrat;
+}
+body {
+  display:flex;
+  align-items: center ;
+  justify-content: center;
+  min-height: 100svh;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+.container {
+    width: 100%;
+    max-width: 300px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #FFFFFF85;
+}
+
+.header {
+    background-color: #FBF96F;
+    color: #fff;
+    height:120px;
+    text-align: center;
+    border-radius: 10px;
+}
+.header1 {
+    background-color: #fbf96f;
+    color: #FFFFFF;
+    display:flex;
+    margin-bottom: -30px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.header1 img{
+  margin-bottom: 9px;
+  transform: scale(150%);
+  
+}
+.content {
+    padding: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45A049;
+}
+
+.otp-form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+}
+.otp-display {
+    margin-top: 20px;
+    text-align: center;
+}
+.otpverify{
+	display: none;
+	margin-right: -10px;
+}
+.otp-text {
+    font-size: 18px;
+    margin: 0;
+}
+input:disabled {
+    background-color: #fff;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+.verify{
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 37px;
+    margin-left: 10px;
+}
+.verify:disabled{
+  background-color: #CCCCCC;
+  cursor: not-allowed;
+}
+.apps{
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 50% 20% 50% 20%; 
+}
+.app{
+  background-color: white;
+    color: #667eea;
+    padding: 10px;
+    max-width: 200px;
+    display: grid;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.4)
+}
+.app:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+}
+.app:hover {
+  background-color: #5B5B5B;
+}
+.t{
+  background-color: white;
+  padding:15px;
+  border-radius: 10px;
+  margin:200px 125px -190px 120px;
+}
+.insta{
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #E1306C;
+    padding: 20px 20px 40px;
+    margin:250px 90px -190px 40px;
+    max-width: 250px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.4)
+} 
+.btn{
+  width:300px;
+  margin:0px -10px 0px;
+}
+p{
+  display:none;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  width: 300px;
+  height : 10px;
+  position: absolute;
+  margin-top: -150%;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background-color: #FFFFFF85;
+  font-size: 17px;
+}
+ </style>
+ 
+<body>
+    <p><span class="material-symbols-rounded">
+check_circle
+</span>&nbsp;OTP sent to your mail..</p>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+             <div class="header1">
+                <img src="Icon.png" alt=" " width="30px">
+                <h1 style="color:#6aa121"> uthentix
+                </h1>
+              </div>
+              <h2 style="color:black">
+                    Signup
+              </h2>
+              </div>
+            </div>
+            <div class="content" id="content">
+              <input type="text" id="fn" placeholder="First name">
+              <input type="text" placeholder="Last name">
+              <input type="text" id="phno" placeholder="Phone number" maxlength="10">
+              <input type="email" id="email" placeholder="Enter Email...">
+              <div class="otpverify">
+                <input type="text" id="otp_inp" inputmode="numeric" placeholder="Enter the OTP.." maxlength="6">
+                <br>
+                <button class="verify" id="otp-btn">Verify</button>
+                </div>
+                <button class="btn" onclick="sendOTP()">Send OTP</button>
+                </div>
+                <h5 style="text-align: center">Already a user ? <a href="login.html">Login</a></h5>
+            </div>
+    <script>
+      function sendOTP() {
+	const email = document.getElementById('email');
+	const otpverify = document.getElementsByClassName('otpverify')[0];
+	const phe=document.getElementsByTagName('p')[0];
+	const ph =document.getElementById('phno');
+	let otp_val = Math.floor(Math.random() * 1000000);
+	const name =document.getElementById('fn');
+	if(name.value=="" || undefined){
+	name.value="user";}
+	let emailbody =
+	`<h5>Dear ${name.value},<br>You have successfully generated OTP for Authentix portal.<br>Do not share the OTP with anyone to avoid misuse of your account.<br>The OTP is :  </h5><h2>${otp_val}</h2><br><h5>If you face any problems in our app Please Contact Us !.<br>Thank You,<br>Authentix Team</h5>`;
+    Email.send({
+    SecureToken : "6d1d070b-dda0-4b2f-ab8a-30b28407026b",
+    To : email.value,
+    From : "authentix387@gmail.com",
+    Subject : "OTP verification",
+    Body : emailbody,
+}).then(
+
+	message => {
+		if (message === "OK") {
+		  phe.style.display = "flex";
+			otpverify.style.display="flex";
+			const otp_inp = document.getElementById('otp_inp');
+			const otp_btn = document.getElementById('otp-btn');
+
+			otp_btn.addEventListener('click', () => {
+				if (otp_inp.value == otp_val) {
+					alert("OTP Veried successfully !");
+					window.open("apps.html")
+				}
+				else {
+					alert("Invalid OTP !");
+				}
+			})
+			const ig_btn = document.getElementById('ig-btn');
+				ig_btn.addEventListener('click', () =>
+				window.open("/Authentix/insta.html"))
+		}
+	}
+);
+}
+    </script>
+</body>
+ 
+</html>

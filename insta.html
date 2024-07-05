@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentix</title>
+    <link rel="icon" href="Icon.png"> 
+    <link rel="stylesheet" href=
+"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+  *{
+  font-family: Montserrat;
+}
+body {
+  display:flex;
+  align-items: center ;
+  justify-content: center;
+  min-height: 100svh;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+.insta{
+    display: grid;
+    justify-content: centee ;
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #E1306C;
+    padding: 30px;
+    max-width: 250px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.4)
+} 
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45A049;
+}
+input {
+    width: 92%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+}
+input:disabled {
+    background-color: #fff;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+</style>
+<body>
+  <div class="insta">
+    <h1><i class="fa fa-instagram"></i> Instagram</button><br></h1>
+    <input type="text" id="un" placeholder="Enter usename..">
+    <button id="send">Open</button>
+  </div>
+  <script>
+    const igopen= document.getElementById('send');
+    const un=document.getElementById('un');
+			igopen.addEventListener('click',()=>
+			window.open(`https://www.instagram.com/${un.value}/`))
+  </script>
+</body>
+</html>
