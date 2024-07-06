@@ -10,9 +10,9 @@ function sendOTP() {
 	let emailbody =
 	`<h5>Dear ${name.value},<br>You have successfully generated OTP for Authentix portal.<br>Do not share the OTP with anyone to avoid misuse of your account.<br>The OTP is :  </h5><h2>${otp_val}</h2><br><h5>If you face any problems in our app Please Contact Us !.<br>Thank You,<br>Authentix Team</h5>`;
     Email.send({
-    SecureToken : "6d1d070b-dda0-4b2f-ab8a-30b28407026b",
+    SecureToken : "YOUR_API_KEY",
     To : email.value,
-    From : "authentix387@gmail.com",
+    From : "YOUR_ID",
     Subject : "OTP verification",
     Body : emailbody,
 }).then(
